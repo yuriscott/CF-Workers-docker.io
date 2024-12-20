@@ -414,17 +414,17 @@ async function proxy(urlObj, reqInit, rawLen) {
 	const resHdrNew = new Headers(resHdrOld);
 
 	// 验证长度
-	if (rawLen) {
-		const newLen = resHdrOld.get('content-length') || '';
-		const badLen = (rawLen !== newLen);
+	//if (rawLen) {
+	//	const newLen = resHdrOld.get('content-length') || '';
+	//	const badLen = (rawLen !== newLen);
 
-		if (badLen) {
-			return makeRes(res.body, 400, {
-				'--error': `bad len: ${newLen}, except: ${rawLen}`,
-				'access-control-expose-headers': '--error',
-			});
-		}
-	}
+	//	if (badLen) {
+	//		return makeRes(res.body, 400, {
+	//			'--error': `bad len: ${newLen}, except: ${rawLen}`,
+	//			'access-control-expose-headers': '--error',
+	//		});
+	//	}
+	//}
 	const status = res.status;
 	resHdrNew.set('access-control-expose-headers', '*');
 	resHdrNew.set('access-control-allow-origin', '*');
